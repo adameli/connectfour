@@ -1,0 +1,44 @@
+body {
+    padding: 5rem;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.boardGame {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    background-color: #936639;
+    padding: 20px;
+}
+
+.emptySlot {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: blanchedalmond;
+    border-top: 3px solid black;
+}
+
+.boardHeader {
+    display: flex;
+    justify-content: space-around;
+}
+
+.slotButtons {
+    height: 20px;
+    width: 20px;
+    background-color: aqua;
+}

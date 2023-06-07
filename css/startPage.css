@@ -1,0 +1,33 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.startPage {
+    background-color: #2B9348;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.startBoxes {
+    background-color: #fb6107;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.startBoxes:nth-child(3) {
+    background-color: #f3de2c;
+}
+
+.startBoxes:nth-child(4) {
+    background-color: whitesmoke;
+}
+
+.startBoxes:hover {
+    cursor: pointer;
+    color: white;
+}
