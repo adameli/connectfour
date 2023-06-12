@@ -24,10 +24,30 @@ main {
     padding: 20px;
 }
 
-.emptySlot {
+.player {
+    padding: 20px;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#playerone {
+    background-color: #f3de2c;
+}
+#playertwo {
+    background-color: #2B9348;
+}
+
+.currentPlayer {
+    box-shadow: 2px 1px 20px white;
+}
+
+.gameSlot {
     height: 40px;
     width: 40px;
     border-radius: 50%;
+}
+
+.empty {
     background-color: blanchedalmond;
     border-top: 3px solid black;
 }
@@ -35,10 +55,25 @@ main {
 .boardHeader {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 .slotButtons {
-    height: 20px;
-    width: 20px;
-    background-color: aqua;
+    height: 30px;
+    width: 30px;
+    background-color: #fb6107;
+    border-radius: 50%;
+    border-top: 3px solid black;
+}
+
+.slotButtons:hover {
+    cursor: pointer;
+    border-top: none;
+}
+
+#player1 {
+    background-color: #f3de2c;
+}
+#player2 {
+    background-color: #2B9348;
 }
