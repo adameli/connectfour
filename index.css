@@ -1,3 +1,13 @@
+:root {
+    --border-top-shadow: 5px solid black;
+    --border-thick: 2px solid black;
+
+    --boardGameColor: #936639;
+    --player1Color: #f3de2c;
+    --player2Color: #2B9348;
+    --buttonColor: blanchedalmond;
+}
+
 * {
     box-sizing: border-box;
 }

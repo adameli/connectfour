@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="shortcut icon" href="resources/favicon-32x32.png" type="image/x-icon">
+    <title>Connect Four</title>
 </head>
+
 <body>
-    <header>
-        <div id="menu" class="backButton">MENU</div>
-        <div class="icon"></div>
-        <div id="restart" class="backButton">RESTART</div>
-    </header>
+
 
     <main>
-        <div class="player" id="playerone">Player 1</div>
+        <div class="player currentPlayer happy" id="playerone">
+            <p>PLAYER 1</p>
+            <span id="player1Score">0</span>
+        </div>
         <section class="boardGameContainer">
+            <header>
+                <div id="menu" class="backButton">MENU</div>
+                <div class="icon"></div>
+                <div id="restart" class="backButton">RESTART</div>
+            </header>
             <div class="boardHeader"></div>
             <div class="boardGame"></div>
         </section>
-        <div class="player" id="playertwo">Player 2</div>
+        <div class="player happy" id="playertwo">
+            <p>PLAYER 2</p>
+            <span id="player2Score">0</span>
+        </div>
     </main>
 
     <!-- <script src="index.js"></script> -->
     <script src="JS/resource.js"></script>
     <script src="JS/game.js"></script>
 </body>
+
 </html>

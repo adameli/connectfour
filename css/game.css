@@ -1,18 +1,33 @@
 body {
-    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.backButton {
+    background-color: rgba(35, 35, 35, 0.53);
+    color: var(--buttonColor);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.backButton:hover {
+    cursor: pointer;
+    background-color: rgba(81, 81, 81, 0.53);
 }
 
 main {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 100%;
+    gap: 40px;
 }
 
 .boardGame {
@@ -20,21 +35,50 @@ main {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 10px;
-    background-color: #936639;
-    padding: 20px;
+    background-color: var(--boardGameColor);
+    padding: 20px 20px 30px 20px;
+    border-radius: 20px;
+    border: 2px solid black;
 }
 
 .player {
+    background-color: var(--boardGameColor);
     padding: 20px;
-    border-radius: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+    border-bottom: 7px solid black;
+    position: relative;
 }
 
-#playerone {
-    background-color: #f3de2c;
+span {
+    font-size: 40px;
 }
-#playertwo {
-    background-color: #2B9348;
+
+p {
+    margin: 5px 0;
+}
+
+#player1,
+#playerone::before {
+    background-color: var(--player1Color);
+}
+
+#player2,
+#playertwo::before {
+    background-color: var(--player2Color);
+}
+
+.player::before {
+    display: block;
+    font-size: 30px;
+    border-radius: 50%;
+    border: var(--border-thick);
+    border-bottom: 4px solid black;
+
+    position: absolute;
+    top: -24px;
+    left: 32px;
 }
 
 .currentPlayer {
@@ -42,38 +86,48 @@ main {
 }
 
 .gameSlot {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
 }
 
 .empty {
-    background-color: blanchedalmond;
-    border-top: 3px solid black;
+    background-color: var(--buttonColor);
+    border: var(--border-thick);
+    border-top: var(--border-top-shadow);
+}
+
+.filled {
+    border: var(--border-thick);
 }
 
 .boardHeader {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 10px;
 }
 
 .slotButtons {
-    height: 30px;
-    width: 30px;
-    background-color: #fb6107;
+    height: 40px;
+    width: 40px;
+    background-color: var(--buttonColor);
     border-radius: 50%;
-    border-top: 3px solid black;
+    border: var(--border-thick);
 }
 
 .slotButtons:hover {
     cursor: pointer;
-    border-top: none;
+    background-color: aqua;
 }
 
-#player1 {
-    background-color: #f3de2c;
+.happy::before {
+    content: "😁";
 }
-#player2 {
-    background-color: #2B9348;
+
+.winner::before {
+    content: "🤩";
+}
+
+.loser::before {
+    content: "😭";
 }
