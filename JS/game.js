@@ -8,7 +8,7 @@ document.getElementById("menu").addEventListener("click", () => {
     window.location = `./`
 })
 document.getElementById("restart").addEventListener("click", () => {
-    console.log("hello");
+    window.location = "connectfour.html";
 })
 
 let datasetId = 1;
@@ -56,6 +56,7 @@ function controllBoardGameWinner() {
 
     // Controlles the rows ____________________________________
     for (let row = 6; row > 0; row--) {
+        resetPlayerCount();
         for (let column = 1; column < 8; column++) {
             let element = document.querySelector(`[style="grid-area: ${row} / ${column};"]`);
             if (element.classList.contains("empty")) {
@@ -63,11 +64,15 @@ function controllBoardGameWinner() {
                 player2Count = 0;
                 continue
             }
-            possibleWin(element);
+
+            let winner = possibleWin(element);
+            if (winner === "winner") {
+                return;
+            }
         }
     }
 
-    // Controlles the columns ____________________________________
+    //Controlles the columns ____________________________________
     for (let column = 1; column < 8; column++) {
         for (let row = 6; row > 0; row--) {
             let element = document.querySelector(`[style="grid-area: ${row} / ${column};"]`);
@@ -76,11 +81,56 @@ function controllBoardGameWinner() {
                 player2Count = 0;
                 continue
             }
+            let winner = possibleWin(element);
+            if (winner === "winner") {
+                return;
+            }
+        }
+    }
+
+    //Controlles the diagonals ____________________________________
+    for (let row = 6; row > 0; row--) {
+        for (let column = 1; column < 8; column++) {
+            let element = document.querySelector(`[style="grid-area: ${row} / ${column};"]`);
+            if (element.classList.contains("empty")) {
+                player1Count = 0;
+                player2Count = 0;
+                continue;
+            }
+
+            let rowStart = parseInt(element.style["grid-row-start"]);
+            let columnStart = parseInt(element.style["grid-column-start"]);
+
             possibleWin(element);
+            resetPlayerCount();
+            controllDiagnoal(rowStart, columnStart, "diagLeft");
+
+            possibleWin(element);
+            resetPlayerCount();
+            controllDiagnoal(rowStart, columnStart, "diagRight");
         }
     }
 }
+function controllDiagnoal(row, column, decider) {
+    for (let diagIndex = 0; diagIndex < 3; diagIndex++) {
+        row--;
+        decider === "diagRight" ? column++ : column--;
 
+        let diagElement = document.querySelector(`[style="grid-area: ${row} / ${column};"]`);
+        if (diagElement === null) {
+            resetPlayerCount();
+            break;
+        }
+        if (diagElement.classList.contains("empty")) {
+            resetPlayerCount();
+            break;
+        }
+        let winner = possibleWin(diagElement);
+        if (winner === "winner") {
+            return;
+        }
+    }
+}
 function possibleWin(element) {
     const currentPlayer = element.id;
     const otherPlayer = currentPlayer === "player1" ? "playertwo" : "playerone";
@@ -99,5 +149,11 @@ function possibleWin(element) {
         document.querySelector(`#${emoji}`).classList.add("winner");
         document.querySelector(`#${otherPlayer}`).classList.add("loser");
         console.log(currentPlayer + " is the winner");
+        return "winner";
     }
+}
+
+function resetPlayerCount() {
+    player1Count = 0;
+    player2Count = 0;
 }

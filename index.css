@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "quicksand";
+    src: url(resources/Quicksand-Medium.ttf);
+}
+
 :root {
     --border-top-shadow: 5px solid black;
     --border-thick: 2px solid black;
@@ -8,12 +13,14 @@
     --buttonColor: blanchedalmond;
 }
 
+
 * {
     box-sizing: border-box;
+    font-family: "quicksand";
 }
 
 body {
     height: 100vh;
     margin: 0;
-    background-color: #007F5F;
+    background-color: #53b099;
 }
