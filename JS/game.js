@@ -5,11 +5,17 @@ let player1Count = 0;
 let player2Count = 0;
 
 document.getElementById("menu").addEventListener("click", () => {
+    window.localStorage.removeItem("player1");
+    window.localStorage.removeItem("player2");
     window.location = `./`
 })
 document.getElementById("restart").addEventListener("click", () => {
     window.location = "connectfour.html";
 })
+
+
+document.getElementById("player1Score").textContent = window.localStorage.getItem("player1");
+document.getElementById("player2Score").textContent = window.localStorage.getItem("player2");
 
 let datasetId = 1;
 for (let row = 1; row < 7; row++) {
@@ -26,7 +32,7 @@ for (let row = 1; row < 7; row++) {
 }
 
 for (let i = 0; i < 7; i++) {
-    let slotButton = document.createElement("div");
+    let slotButton = document.createElement("button");
     slotButton.classList.add("slotButtons");
     slotButton.dataset.slotDecider = i;
     slotButton.addEventListener("click", fillSlot);
@@ -102,12 +108,12 @@ function controllBoardGameWinner() {
             let columnStart = parseInt(element.style["grid-column-start"]);
 
             possibleWin(element);
-            resetPlayerCount();
             controllDiagnoal(rowStart, columnStart, "diagLeft");
+            resetPlayerCount();
 
             possibleWin(element);
-            resetPlayerCount();
             controllDiagnoal(rowStart, columnStart, "diagRight");
+            resetPlayerCount();
         }
     }
 }
@@ -148,6 +154,11 @@ function possibleWin(element) {
     if (player1Count === 4 || player2Count === 4) {
         document.querySelector(`#${emoji}`).classList.add("winner");
         document.querySelector(`#${otherPlayer}`).classList.add("loser");
+        document.querySelectorAll(".slotButtons").forEach(button => button.setAttribute("disabled", true))
+        let playerPoints = parseInt(window.localStorage.getItem(currentPlayer));
+        let newPoint = playerPoints += 1;
+        document.getElementById(currentPlayer + "Score").textContent = newPoint;
+        window.localStorage.setItem(currentPlayer, `${newPoint}`);
         console.log(currentPlayer + " is the winner");
         return "winner";
     }
