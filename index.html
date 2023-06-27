@@ -12,12 +12,31 @@
 </head>
 
 <body>
+    <dialog>
+        <h1>Connect Four</h1>
+        <h3>Objective</h3>
+        <p>The objective of Connect Four is to be the first player to connect four of their own colored discs in a
+            vertical, horizontal, or diagonal line on the game board.</p>
+
+        <h3>How To Play</h3>
+        <section>
+            <ul>
+                <li>The player who makes the first move every round shifts each game so it is fare for both the players
+                </li>
+                <li>The chosen disc is dropped from the top of the selected column, and it will fall to the lowest
+                    available
+                    position within that column.</li>
+                <li>Once a disc is placed, it cannot be moved or removed.</li>
+            </ul>
+        </section>
+        <button id="closeDialog">X</button>
+    </dialog>
     <main>
         <section class="startPage">
             <h1>Lets play Connect Four</h1>
             <div class="startBoxes" id="playGame">Play vs Player</div>
             <div class="startBoxes">Play vs Friend</div>
-            <div class="startBoxes">Rules</div>
+            <div class="startBoxes" id="rules">Rules</div>
         </section>
     </main>
 

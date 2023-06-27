@@ -14,6 +14,8 @@ document.getElementById("restart").addEventListener("click", () => {
 })
 
 
+
+
 document.getElementById("player1Score").textContent = window.localStorage.getItem("player1");
 document.getElementById("player2Score").textContent = window.localStorage.getItem("player2");
 
@@ -33,13 +35,44 @@ for (let row = 1; row < 7; row++) {
 
 for (let i = 0; i < 7; i++) {
     let slotButton = document.createElement("button");
+    const hoverAnimationParent = document.createElement("div");
+    hoverAnimationParent.classList.add("animationParent");
+    slotButton.append(hoverAnimationParent)
     slotButton.classList.add("slotButtons");
     slotButton.dataset.slotDecider = i;
     slotButton.addEventListener("click", fillSlot);
+    slotButton.addEventListener("mouseenter", hoverAnimation);
+    slotButton.addEventListener("mouseleave", cancelAnimation);
     document.querySelector(".boardHeader").append(slotButton);
 }
 
+function cancelAnimation(event) {
+    event.currentTarget.children[0].childNodes.forEach(element => {
+        element.remove()
+    })
+}
+
+function hoverAnimation(event) {
+    const brotherDom = document.createElement("div");
+    brotherDom.classList.add("animationBrother");
+    event.currentTarget.children[0].append(brotherDom);
+    let id = event.currentTarget.dataset["slotDecider"]
+    let unfilledSlots = slotsArray[id].length;
+
+
+    let delay = 1;
+    for (let i = 0; i < unfilledSlots; i++) {
+        let effectDiv = document.createElement("div");
+        effectDiv.classList.add("animationChild");
+        effectDiv.classList.add(`animationDelay--${delay}ms`);
+        brotherDom.append(effectDiv);
+        delay++;
+    }
+}
+
+
 function fillSlot(event) {
+    cancelAnimation(event);
     let slotColumn = event.currentTarget.dataset["slotDecider"];
     let slot = slotsArray[slotColumn][0];
     if (slotsArray[slotColumn].length === 0) {

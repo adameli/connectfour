@@ -32,5 +32,42 @@ body {
 
 .startBoxes:hover {
     cursor: pointer;
+    background-color: var(--hoverColor);
+}
+
+dialog {
+    width: 600px;
+    background-color: var(--boardGameColor);
+    padding: 10px 50px;
+
+}
+
+dialog h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: #53b099;
+}
+
+dialog p,
+li {
+    font-size: 14px;
     color: white;
+}
+
+dialog h3 {
+    color: var(--player1Color);
+}
+
+dialog button {
+    padding: 15px;
+    background-color: var(--player1Color);
+    color: black;
+    font-weight: 900;
+    border-radius: 50%;
+    border: var(--border-thick);
+}
+
+dialog button:hover {
+    cursor: pointer;
+    background-color: var(--hoverColor);
 }
