@@ -1,8 +1,19 @@
 
 const boardGame = document.querySelector(".boardGame");
-let currentPlayer = 1;
+let currentPlayer = parseInt(window.localStorage.getItem("startplayer"));
 let player1Count = 0;
 let player2Count = 0;
+
+let correctTheme = window.localStorage.getItem("theme");
+document.body.classList.add(correctTheme);
+
+if (currentPlayer === 1) {
+    document.querySelector("#playerone").classList.add("currentPlayer");
+    document.querySelector("#playertwo").classList.remove("currentPlayer");
+} else {
+    document.querySelector("#playerone").classList.remove("currentPlayer");
+    document.querySelector("#playertwo").classList.add("currentPlayer");
+}
 
 document.getElementById("menu").addEventListener("click", () => {
     window.localStorage.removeItem("player1");
@@ -13,11 +24,34 @@ document.getElementById("restart").addEventListener("click", () => {
     window.location = "connectfour.html";
 })
 
-
-
-
 document.getElementById("player1Score").textContent = window.localStorage.getItem("player1");
 document.getElementById("player2Score").textContent = window.localStorage.getItem("player2");
+
+const themeDialog = document.querySelector(".changeTheme");
+document.querySelector(".icon").addEventListener("click", () => {
+    console.log("hello");
+    themeDialog.showModal();
+})
+document.querySelector(".exit").addEventListener("click", () => {
+    themeDialog.close();
+})
+
+document.querySelector(".normal").addEventListener("click", () => {
+    document.body.classList.remove("clean-theme");
+    document.body.classList.remove("crazy-theme");
+    window.localStorage.setItem("theme", "normal");
+    themeDialog.close();
+})
+document.querySelector(".clean").addEventListener("click", () => {
+    document.body.classList.add("clean-theme");
+    window.localStorage.setItem("theme", "clean-theme");
+    themeDialog.close();
+})
+document.querySelector(".crazy").addEventListener("click", () => {
+    document.body.classList.add("crazy-theme");
+    window.localStorage.setItem("theme", "crazy-theme");
+    themeDialog.close();
+})
 
 let datasetId = 1;
 for (let row = 1; row < 7; row++) {
@@ -192,7 +226,9 @@ function possibleWin(element) {
         let newPoint = playerPoints += 1;
         document.getElementById(currentPlayer + "Score").textContent = newPoint;
         window.localStorage.setItem(currentPlayer, `${newPoint}`);
-        console.log(currentPlayer + " is the winner");
+        let startPlayer = window.localStorage.getItem("startplayer");
+        console.log(startPlayer);
+        startPlayer === "1" ? window.localStorage.setItem("startplayer", 2) : window.localStorage.setItem("startplayer", 1);
         return "winner";
     }
 }
