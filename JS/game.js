@@ -4,6 +4,7 @@ let currentPlayer = parseInt(window.localStorage.getItem("startplayer"));
 let player1Count = 0;
 let player2Count = 0;
 
+//* this changes the theme 
 let correctTheme = window.localStorage.getItem("theme");
 document.body.classList.add(correctTheme);
 
