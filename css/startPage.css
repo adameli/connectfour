@@ -50,8 +50,8 @@ dialog h1 {
 
 dialog p,
 li {
-    font-size: 13px;
-    color: white;
+    font-size: 15px;
+    color: var(--buttonColor);
 }
 
 dialog h3 {

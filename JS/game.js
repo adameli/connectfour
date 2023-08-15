@@ -27,9 +27,8 @@ document.getElementById("restart").addEventListener("click", () => {
 document.getElementById("player1Score").textContent = window.localStorage.getItem("player1");
 document.getElementById("player2Score").textContent = window.localStorage.getItem("player2");
 
-const themeDialog = document.querySelector(".changeTheme");
+const themeDialog = document.querySelector("dialog");
 document.querySelector(".icon").addEventListener("click", () => {
-    console.log("hello");
     themeDialog.showModal();
 })
 document.querySelector(".exit").addEventListener("click", () => {
@@ -39,18 +38,20 @@ document.querySelector(".exit").addEventListener("click", () => {
 document.querySelector(".normal").addEventListener("click", () => {
     document.body.classList.remove("clean-theme");
     document.body.classList.remove("crazy-theme");
+    document.body.classList.add("normal");
     window.localStorage.setItem("theme", "normal");
-    themeDialog.close();
 })
 document.querySelector(".clean").addEventListener("click", () => {
+    document.body.classList.remove("normal");
+    document.body.classList.remove("crazy-theme");
     document.body.classList.add("clean-theme");
     window.localStorage.setItem("theme", "clean-theme");
-    themeDialog.close();
 })
 document.querySelector(".crazy").addEventListener("click", () => {
+    document.body.classList.remove("clean-theme");
+    document.body.classList.remove("normal");
     document.body.classList.add("crazy-theme");
     window.localStorage.setItem("theme", "crazy-theme");
-    themeDialog.close();
 })
 
 let datasetId = 1;

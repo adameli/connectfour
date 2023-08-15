@@ -7,12 +7,21 @@
     --border-top-shadow: 5px solid black;
     --border-thick: 2px solid black;
 
+    --mainBackground: #a8dadc;
+    --boardGameColor: #f1faee;
+    --buttonColor: #457b9d;
+    --player1Color: #e63946;
+    --player2Color: #05c0aa;
+    --hoverColor: rgb(184, 184, 191);
+    --headerButtonsColor: #f1faee;
+}
+
+.normal {
     --mainBackground: #53b099;
     --boardGameColor: #936639;
     --player1Color: #f3de2c;
     --player2Color: #2B9348;
     --buttonColor: blanchedalmond;
-    --hoverColor: rgb(184, 184, 191);
     --headerButtonsColor: rgba(35, 35, 35, 0.53);
 }
 
@@ -27,11 +36,11 @@
 }
 
 .crazy-theme {
-    --mainBackground: #a8dadc;
-    --boardGameColor: #f1faee;
-    --buttonColor: #457b9d;
-    --player1Color: #e63946;
-    --player2Color: #05c0aa;
+    --mainBackground: #c66590;
+    --boardGameColor: #764c4c;
+    --buttonColor: #d85226;
+    --player1Color: #7ee639;
+    --player2Color: #7205c0;
     --headerButtonsColor: #f1faee;
 }
 

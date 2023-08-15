@@ -8,7 +8,7 @@ startGameButton.addEventListener("click", () => {
     window.localStorage.setItem("player1", "0");
     window.localStorage.setItem("startplayer", "1");
     window.localStorage.setItem("player2", "0");
-    window.localStorage.setItem("theme", "normal");
+    window.localStorage.setItem("theme", "clean-theme");
 });
 
 const dialog = document.querySelector("dialog");
