@@ -55,6 +55,7 @@ document.querySelector(".crazy").addEventListener("click", () => {
     window.localStorage.setItem("theme", "crazy-theme");
 })
 
+//* this fills the gameboard with slots
 let datasetId = 1;
 for (let row = 1; row < 7; row++) {
     for (let column = 1; column < 8; column++) {
@@ -69,6 +70,7 @@ for (let row = 1; row < 7; row++) {
 
 }
 
+//* this creates the buttons witch the player can fill one of the slots
 for (let i = 0; i < 7; i++) {
     let slotButton = document.createElement("button");
     const hoverAnimationParent = document.createElement("div");
@@ -186,6 +188,7 @@ function controllBoardGameWinner() {
         }
     }
 }
+
 function controllDiagnoal(row, column, decider) {
     for (let diagIndex = 0; diagIndex < 3; diagIndex++) {
         row--;
