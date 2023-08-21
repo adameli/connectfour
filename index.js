@@ -20,4 +20,9 @@ document.querySelector("#closeDialog").addEventListener("click", () => {
     dialog.close();
 })
 
+document.querySelector("#playFriend").addEventListener("click", () => {
+    window.alert("This function is in working progress, expected realse date 1 jan 2024")
+})
+
+
 
