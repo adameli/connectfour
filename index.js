@@ -1,3 +1,6 @@
+window.addEventListener("load", function () { window.scrollTo(0, 1); });
+
+
 
 //* startPage
 const startGameButton = document.getElementById("playGame");
